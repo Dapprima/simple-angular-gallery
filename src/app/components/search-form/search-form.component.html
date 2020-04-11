@@ -1,0 +1,26 @@
+<div class="row mb-3">
+  <form
+    #searchForm="ngForm"
+    (submit)="onSubmit($event)"
+    class="form-inline mx-auto"
+  >
+    <div class="form-group">
+      <input
+        [(ngModel)]="searchTerm"
+        type="text"
+        name="search"
+        class="form-control mr-2"
+        placeholder="Enter image search"
+        required
+        minlength="2"
+      />
+    </div>
+    <button
+      type="submit"
+      [disabled]="!searchForm.form.valid"
+      class="btn btn-primary"
+    >
+      Search
+    </button>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<app-search-form (newPhotos)="onNewPhotos($event)"></app-search-form>
+
+<div class="row" *ngIf="notFound == false">
+  <div *ngFor="let photo of photos" class="col-md-4 card text-left mb-1">
+    <img
+      class="img-fluid mt-2"
+      style="max-height: 300px;"
+      src="{{ photo.webformatURL }}"
+      alt=""
+    />
+    <div class="card-body">
+      <p>Author: {{ photo.user }}</p>
+      <p>
+        Views: {{ photo.views }} Downloads: {{ photo.downloads }} Likes:
+        {{ photo.likes }}
+      </p>
+    </div>
+  </div>
+</div>
+<div class="text-center text-danger bold" *ngIf="notFound == true">
+  Not Found please check your input
+</div>
